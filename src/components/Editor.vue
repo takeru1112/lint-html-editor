@@ -37,7 +37,6 @@ export default class extends Vue {
     this.editor.onDidChangeModelContent(this.onDidChange);
   }
   private onDidChange(e: monaco.editor.IModelContentChangedEvent) {
-    console.log(e);
     const value = this.editor.getValue();
     this.$emit("input", value);
   }
