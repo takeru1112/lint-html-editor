@@ -1,6 +1,7 @@
 <template>
-  <div id="app">
-    <editor />
+  <div id="app" class="container">
+    <Editor v-model="value" />
+    <span v-html="value"></span>
   </div>
 </template>
 
@@ -10,9 +11,11 @@ import { Component, Vue } from "vue-property-decorator";
 import Editor from "./components/Editor.vue";
 
 @Component({
-  components:{
+  components: {
     Editor
   }
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+  value = "";
+}
 </script>
