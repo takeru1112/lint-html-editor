@@ -10,9 +10,9 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 
-import Editor from "./components/Editor.vue";
-import ViewerFrame from "./components/ViewerFrame.vue";
-import Viewer from "./components/Viewer.vue";
+import Editor from "../components/Editor.vue";
+import ViewerFrame from "../components/ViewerFrame.vue";
+import Viewer from "../components/Viewer.vue";
 
 @Component({
   components: {
