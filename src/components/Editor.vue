@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div :style="{width: width, height:height}" ref="container"></div>
+    <div :style="{height:height}" ref="container"></div>
   </div>
 </template>
 <script lang="ts">
@@ -31,7 +31,9 @@ export default class extends Vue {
   editor!: IStandaloneCodeEditor;
   value!: string;
   public mounted() {
-    this.editor = monaco.editor.create(this.$refs.container);
+    this.editor = monaco.editor.create(this.$refs.container, {
+      automaticLayout: true
+    });
     const model = monaco.editor.createModel(this.value, "html");
     this.editor.setModel(model);
     this.editor.onDidChangeModelContent(this.onDidChange);
