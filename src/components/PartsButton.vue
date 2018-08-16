@@ -1,6 +1,6 @@
 <template>
-  <b-dropdown>
-    <b-dropdown-item v-for="(index,item) in items" :key="index">{{item.title}}</b-dropdown-item>
+  <b-dropdown :text="text">
+    <b-dropdown-item-button v-for="(template, key) in items" :key="key" @click="onClick(template)">{{key}}</b-dropdown-item-button>
   </b-dropdown>
 </template>
 <script lang="ts">
@@ -8,11 +8,18 @@ import { Component, Vue } from "vue-property-decorator";
 
 @Component({
   props: {
+    text: {
+      type: String
+    },
     items: {
-      type: Array
+      type: Object
     }
   }
 })
-export default class extends Vue {}
+export default class PartsButton extends Vue {
+  onClick(template: string) {
+    this.$emit("click", template);
+  }
+}
 </script>
 

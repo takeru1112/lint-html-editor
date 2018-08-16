@@ -1,17 +1,21 @@
 <template>
-  <div :style="{height:height}" ref="container"></div>
+  <b-container fluid>
+    <PartsButtonGroup :items="partsList" @select="onSelectParts" />
+    <div :style="{height:height}" ref="container"></div>
+  </b-container>
 </template>
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import * as monaco from "monaco-editor";
 import IStandaloneCodeEditor = monaco.editor.IStandaloneCodeEditor;
 
+import PartsButtonGroup from "./PartsButtonGroup.vue";
+
+import { PARTS_LIST } from "../consts/partsList";
+
 @Component({
+  components: { PartsButtonGroup },
   props: {
-    width: {
-      type: String,
-      default: "400px"
-    },
     height: {
       type: String,
       default: "600px"
@@ -22,7 +26,8 @@ import IStandaloneCodeEditor = monaco.editor.IStandaloneCodeEditor;
     }
   }
 })
-export default class extends Vue {
+export default class Editor extends Vue {
+  partsList = PARTS_LIST;
   $refs!: {
     container: HTMLDivElement;
   };
@@ -38,6 +43,9 @@ export default class extends Vue {
       }
     });
     this.editor.onDidChangeModelContent(this.onDidChange);
+  }
+  public onSelectParts(template: string) {
+    this.editor.setValue(this.value + template)
   }
   private onDidChange(e: monaco.editor.IModelContentChangedEvent) {
     const value = this.editor.getValue();

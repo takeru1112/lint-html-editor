@@ -1,6 +1,10 @@
 <template>
   <b-container>
-    <PartsButton />
+      <b-form-group>
+        <b-button-group>
+            <PartsButton v-for="(item, index) in items" :key="index" :items="item" :text="index" @click="onSelect" />
+        </b-button-group>
+      </b-form-group>
   </b-container>
 </template>
 <script lang="ts">
@@ -12,10 +16,14 @@ import PartsButton from "./PartsButton.vue";
   components: { PartsButton },
   props: {
     items: {
-      type: Array
+      type: Object
     }
   }
 })
-export default class extends Vue {}
+export default class PartsButtonGroup extends Vue {
+  onSelect(template: string) {
+    this.$emit("select", template);
+  }
+}
 </script>
 
