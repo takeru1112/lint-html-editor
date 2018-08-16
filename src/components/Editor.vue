@@ -1,7 +1,11 @@
 <template>
-  <b-container fluid>
-    <PartsButtonGroup :items="partsList" @select="onSelectParts" />
-    <div :style="{height:height}" ref="container"></div>
+  <b-container>
+      <b-card title="パーツリスト" class="my-2">
+        <PartsButtonGroup :items="partsList" @select="onSelectParts" />
+      </b-card>
+      <b-card class="my-2">
+        <div :style="{height:height}" ref="container"></div>
+      </b-card>
   </b-container>
 </template>
 <script lang="ts">

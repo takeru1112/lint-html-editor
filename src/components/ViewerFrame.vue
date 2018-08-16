@@ -1,5 +1,5 @@
 <template>
-  <b-container>
+  <b-container fluid class="preview-frame">
     <iframe src="./preview.html" frameborder="0" ref="frame" width="1024" height="768"></iframe>
   </b-container>
 </template>
@@ -30,3 +30,9 @@ export default class PreviewFrame extends Vue {
   value!: string;
 }
 </script>
+
+<style lang="scss" scoped>
+.preview-frame {
+  text-align: center;
+}
+</style>
