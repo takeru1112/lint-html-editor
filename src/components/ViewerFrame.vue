@@ -1,8 +1,5 @@
 <template>
-    <div>
-        <h1>template heading</h1>
-        <slot>template body</slot>
-    </div>
+<iframe src="./preview.html" frameborder="0"></iframe>
 </template>
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
