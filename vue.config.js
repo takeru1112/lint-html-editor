@@ -12,5 +12,6 @@ module.exports = {
   },
   configureWebpack: {
     plugins: [new MonacoWebpackPlugin()]
-  }
+  },
+  baseUrl: process.env.NODE_ENV === "production" ? "./" : "/"
 };
