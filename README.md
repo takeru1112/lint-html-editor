@@ -22,7 +22,7 @@ npm run lint
 ## テンプレートの編集
 
 ### パーツリストの更新
-`src/consts/partsList.ts` 内の `PARTS_LIST` の内容を編集。
+`src/setting/partsList.ts` 内の `PARTS_LIST` の内容を編集。
 フォーマットは以下。
 
 ```ts
