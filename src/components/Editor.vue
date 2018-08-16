@@ -45,7 +45,7 @@ export default class Editor extends Vue {
     this.editor.onDidChangeModelContent(this.onDidChange);
   }
   public onSelectParts(template: string) {
-    this.editor.setValue(this.value + template)
+    this.editor.trigger("keyboard", "type", { text: template });
   }
   private onDidChange(e: monaco.editor.IModelContentChangedEvent) {
     const value = this.editor.getValue();
