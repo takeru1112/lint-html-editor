@@ -1,7 +1,10 @@
 <template>
-  <div id="app" class="container">
+  <div id="app">
+    <b-navbar variant="dark" type="dark">
+      <b-navbar-brand>LintEditor</b-navbar-brand>
+    </b-navbar>
     <Editor v-model="value" @input="onChange" />
-    <ViewerFrame />
+    <ViewerFrame :value="value" />
   </div>
 </template>
 
