@@ -11,7 +11,7 @@ import IStandaloneCodeEditor = monaco.editor.IStandaloneCodeEditor;
 
 import PartsButtonGroup from "./PartsButtonGroup.vue";
 
-import { PARTS_LIST } from "../consts/partsList";
+import { PARTS_LIST } from "../setting/partsList";
 
 @Component({
   components: { PartsButtonGroup },
