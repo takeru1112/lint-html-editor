@@ -18,7 +18,7 @@ import { PARTS_LIST } from "../consts/partsList";
   props: {
     height: {
       type: String,
-      default: "600px"
+      default: "200px"
     },
     value: {
       type: String,
