@@ -1,7 +1,7 @@
 <template>
-<div>
-<iframe src="./preview.html" frameborder="0" ref="frame"></iframe>
-</div>
+  <b-container>
+    <iframe src="./preview.html" frameborder="0" ref="frame" width="1024" height="768"></iframe>
+  </b-container>
 </template>
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
@@ -16,7 +16,10 @@ import { Component, Vue } from "vue-property-decorator";
     value(val: string) {
       const win = this.$refs.frame.contentWindow;
       if (!win) return;
-      win.postMessage({ type: "previewText", data: val }, "http://localhost:8080");
+      win.postMessage(
+        { type: "previewText", data: val },
+        "http://localhost:8080"
+      );
     }
   }
 })

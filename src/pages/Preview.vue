@@ -1,8 +1,5 @@
 <template>
-  <div id="app" class="container">
-      Preview Area
-      <Viewer :value="value" />
-  </div>
+  <Viewer :value="value" />
 </template>
 
 <script lang="ts">
