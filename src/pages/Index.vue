@@ -21,7 +21,7 @@ import ViewerFrame from "../components/ViewerFrame.vue";
   }
 })
 export default class Index extends Vue {
-  value: string = "";
+  value: string = "\n\n\n\n\n\n\n\n\n";
   public onChange(val: string) {}
 }
 </script>
