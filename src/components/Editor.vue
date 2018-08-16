@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <div :style="{height:height}" ref="container"></div>
-  </div>
+  <div :style="{height:height}" ref="container"></div>
 </template>
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
@@ -31,11 +29,14 @@ export default class extends Vue {
   editor!: IStandaloneCodeEditor;
   value!: string;
   public mounted() {
-    this.editor = monaco.editor.create(this.$refs.container, {
-      automaticLayout: true
-    });
     const model = monaco.editor.createModel(this.value, "html");
-    this.editor.setModel(model);
+    this.editor = monaco.editor.create(this.$refs.container, {
+      model,
+      automaticLayout: true,
+      minimap: {
+        enabled: false
+      }
+    });
     this.editor.onDidChangeModelContent(this.onDidChange);
   }
   private onDidChange(e: monaco.editor.IModelContentChangedEvent) {
