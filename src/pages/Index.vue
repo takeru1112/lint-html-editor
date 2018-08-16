@@ -20,7 +20,7 @@ import ViewerFrame from "../components/ViewerFrame.vue";
     ViewerFrame
   }
 })
-export default class extends Vue {
+export default class Index extends Vue {
   value: string = "";
   public onChange(val: string) {}
 }

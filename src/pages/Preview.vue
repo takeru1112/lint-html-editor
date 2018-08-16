@@ -12,7 +12,7 @@ import Viewer from "../components/Viewer.vue";
     Viewer
   }
 })
-export default class extends Vue {
+export default class Preview extends Vue {
   value: string = "";
   mounted() {
     window.addEventListener("message", this.onMessage);
