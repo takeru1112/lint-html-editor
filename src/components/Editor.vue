@@ -22,7 +22,7 @@ import { PARTS_LIST } from "../setting/partsList";
   props: {
     height: {
       type: String,
-      default: "200px"
+      default: "400px"
     },
     value: {
       type: String,
