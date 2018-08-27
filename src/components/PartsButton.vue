@@ -22,4 +22,3 @@ export default class PartsButton extends Vue {
   }
 }
 </script>
-

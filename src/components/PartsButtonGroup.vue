@@ -26,4 +26,3 @@ export default class PartsButtonGroup extends Vue {
   }
 }
 </script>
-
