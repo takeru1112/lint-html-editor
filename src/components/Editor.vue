@@ -38,6 +38,24 @@ export default class Editor extends Vue {
   editor!: IStandaloneCodeEditor;
   value!: string;
   public mounted() {
+    const options: monaco.languages.html.Options = {
+      format: {
+        tabSize: 4,
+        insertSpaces: false,
+        wrapLineLength: 120,
+        unformatted:
+          'default": "a, abbr, acronym, b, bdo, big, br, button, cite, code, dfn, em, i, img, input, kbd, label, map, object, q, samp, select, small, strong, sub, sup, textarea, tt, var',
+        contentUnformatted: "pre",
+        indentInnerHtml: false,
+        preserveNewLines: true,
+        maxPreserveNewLines: 0,
+        indentHandlebars: false,
+        endWithNewline: false,
+        extraLiners: "head, body, /html",
+        wrapAttributes: "auto"        
+      }
+    };
+    monaco.languages.html.htmlDefaults.setOptions(options);
     const model = monaco.editor.createModel(this.value, "html");
     this.editor = monaco.editor.create(this.$refs.container, {
       model,
@@ -50,6 +68,7 @@ export default class Editor extends Vue {
   }
   public onSelectParts(template: string) {
     this.editor.trigger("keyboard", "type", { text: template });
+    this.editor.trigger("keyboard", "editor.action.formatDocument", {});
   }
   private onDidChange(e: monaco.editor.IModelContentChangedEvent) {
     const value = this.editor.getValue();
