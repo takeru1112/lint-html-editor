@@ -67,6 +67,7 @@ export default class Editor extends Vue {
     this.editor.onDidChangeModelContent(this.onDidChange);
   }
   public onSelectParts(template: string) {
+    template = template.replace(/.* </g, '<')
     this.editor.trigger("keyboard", "type", { text: template });
     this.editor.trigger("keyboard", "editor.action.formatDocument", {});
   }
