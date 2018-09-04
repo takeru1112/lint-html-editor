@@ -4,14 +4,15 @@
         <PartsButtonGroup :items="partsList" @select="onSelectParts" />
       </b-card>
       <b-card class="my-2">
-        <div :style="{height:height}" ref="container"></div>
+        <textarea ref="textarea"></textarea>
       </b-card>
   </b-container>
 </template>
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import * as monaco from "monaco-editor";
-import IStandaloneCodeEditor = monaco.editor.IStandaloneCodeEditor;
+import * as codemirror from "codemirror";
+import "codemirror/mode/htmlmixed/htmlmixed.js";
+import "codemirror/lib/codemirror.css";
 
 import PartsButtonGroup from "./PartsButtonGroup.vue";
 
@@ -34,45 +35,28 @@ export default class Editor extends Vue {
   partsList = PARTS_LIST;
   $refs!: {
     container: HTMLDivElement;
+    textarea: HTMLTextAreaElement;
   };
-  editor!: IStandaloneCodeEditor;
+  editor!: CodeMirror.EditorFromTextArea;
   value!: string;
   public mounted() {
-    const options: monaco.languages.html.Options = {
-      format: {
-        tabSize: 4,
-        insertSpaces: false,
-        wrapLineLength: 120,
-        unformatted:
-          'default": "a, abbr, acronym, b, bdo, big, br, button, cite, code, dfn, em, i, img, input, kbd, label, map, object, q, samp, select, small, strong, sub, sup, textarea, tt, var',
-        contentUnformatted: "pre",
-        indentInnerHtml: false,
-        preserveNewLines: true,
-        maxPreserveNewLines: 0,
-        indentHandlebars: false,
-        endWithNewline: false,
-        extraLiners: "head, body, /html",
-        wrapAttributes: "auto"        
-      }
-    };
-    monaco.languages.html.htmlDefaults.setOptions(options);
-    const model = monaco.editor.createModel(this.value, "html");
-    this.editor = monaco.editor.create(this.$refs.container, {
-      model,
-      automaticLayout: true,
-      minimap: {
-        enabled: false
-      }
+    this.editor = codemirror.fromTextArea(this.$refs.textarea, {
+      lineNumbers: true,
+      mode: "text/html"
     });
-    this.editor.onDidChangeModelContent(this.onDidChange);
+    this.editor.on("change", this.onDidChange);
   }
   public onSelectParts(template: string) {
-    template = template.replace(/.* </g, '<')
-    this.editor.trigger("keyboard", "type", { text: template });
+    this.editor.getDoc().replaceSelection(template);
+    this.editor.save();
   }
-  private onDidChange(e: monaco.editor.IModelContentChangedEvent) {
-    const value = this.editor.getValue();
+  private onDidChange(
+    incetance: CodeMirror.Editor,
+    change: CodeMirror.EditorChangeLinkedList
+  ) {
+    const value = this.editor.getValue()
     this.$emit("input", value);
+    
   }
 }
 </script>
