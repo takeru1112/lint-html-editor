@@ -18,7 +18,7 @@ import { Component, Vue } from "vue-property-decorator";
       if (!win) return;
       win.postMessage(
         { type: "previewText", data: val },
-        "http://localhost:8080"
+        "*"
       );
     }
   }
