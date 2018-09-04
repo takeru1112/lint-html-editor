@@ -10,6 +10,7 @@
   "dependencies": {
     "bootstrap-vue": "^2.0.0-rc.11",
     "jquery": "^3.3.1",
+    "codemirror": "^5.40.0",
     "monaco-editor": "^0.14.2",
     "monaco-editor-webpack-plugin": "^1.5.1",
     "register-service-worker": "^1.0.0",
@@ -18,6 +19,7 @@
     "vue-property-decorator": "^7.0.0"
   },
   "devDependencies": {
+    "@types/codemirror": "^0.0.60",
     "@vue/cli-plugin-eslint": "^3.0.0",
     "@vue/cli-plugin-pwa": "^3.0.0",
     "@vue/cli-plugin-typescript": "^3.0.0",
