@@ -16,10 +16,7 @@ import { Component, Vue } from "vue-property-decorator";
     value(val: string) {
       const win = this.$refs.frame.contentWindow;
       if (!win) return;
-      win.postMessage(
-        { type: "previewText", data: val },
-        "*"
-      );
+      win.postMessage({ type: "previewText", data: val }, "*");
     }
   }
 })

@@ -54,9 +54,8 @@ export default class Editor extends Vue {
     incetance: CodeMirror.Editor,
     change: CodeMirror.EditorChangeLinkedList
   ) {
-    const value = this.editor.getValue()
+    const value = this.editor.getValue();
     this.$emit("input", value);
-    
   }
 }
 </script>
