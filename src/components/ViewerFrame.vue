@@ -1,6 +1,12 @@
 <template>
   <b-container fluid class="preview-frame">
-    <iframe src="./preview.html" frameborder="0" ref="frame" width="1024" height="768"></iframe>
+    <iframe
+      src="./preview.html"
+      frameborder="0"
+      ref="frame"
+      width="1024"
+      height="768"
+    ></iframe>
   </b-container>
 </template>
 <script lang="ts">

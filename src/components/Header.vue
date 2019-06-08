@@ -1,5 +1,5 @@
 <template>
-    <header>Header</header>
+  <header>Header</header>
 </template>
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";

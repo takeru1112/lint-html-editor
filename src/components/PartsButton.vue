@@ -1,6 +1,11 @@
 <template>
   <b-dropdown :text="text">
-    <b-dropdown-item-button v-for="(template, key) in items" :key="key" @click="onClick(template)">{{key}}</b-dropdown-item-button>
+    <b-dropdown-item-button
+      v-for="(template, key) in items"
+      :key="key"
+      @click="onClick(template)"
+      >{{ key }}</b-dropdown-item-button
+    >
   </b-dropdown>
 </template>
 <script lang="ts">

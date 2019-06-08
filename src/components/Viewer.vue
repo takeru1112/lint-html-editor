@@ -1,5 +1,5 @@
 <template>
-    <div v-html="value"></div>
+  <div v-html="value"></div>
 </template>
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";

@@ -1,10 +1,16 @@
 <template>
   <b-container>
-      <b-form-group>
-        <b-button-group>
-            <PartsButton v-for="(item, index) in items" :key="index" :items="item" :text="index" @click="onSelect" />
-        </b-button-group>
-      </b-form-group>
+    <b-form-group>
+      <b-button-group>
+        <PartsButton
+          v-for="(item, index) in items"
+          :key="index"
+          :items="item"
+          :text="index"
+          @click="onSelect"
+        />
+      </b-button-group>
+    </b-form-group>
   </b-container>
 </template>
 <script lang="ts">

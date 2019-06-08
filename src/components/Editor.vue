@@ -1,11 +1,11 @@
 <template>
   <b-container>
-      <b-card title="パーツリスト" class="my-2">
-        <PartsButtonGroup :items="partsList" @select="onSelectParts" />
-      </b-card>
-      <b-card class="my-2">
-        <textarea ref="textarea"></textarea>
-      </b-card>
+    <b-card title="パーツリスト" class="my-2">
+      <PartsButtonGroup :items="partsList" @select="onSelectParts" />
+    </b-card>
+    <b-card class="my-2">
+      <textarea ref="textarea"></textarea>
+    </b-card>
   </b-container>
 </template>
 <script lang="ts">
