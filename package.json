@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "bootstrap-vue": "^2.0.0-rc.22",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "codemirror": "^5.40.0",
     "monaco-editor": "^0.14.2",
     "monaco-editor-webpack-plugin": "^1.5.1",
